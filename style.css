@@ -85,8 +85,6 @@ h4 {
 h1 {
   font-size: var(--h1-font-size);
   font-weight: 900;
-  margin-left: 2rem;
-  color: rgb(80, 177, 83);
 }
 
 h2 {
@@ -108,8 +106,43 @@ TON CODE ICI mobile - first
 
 /**********************
 ******Tristan*********/
+.header {
+  z-index: 100;
+  position: sticky;
+  top: -90vh;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+}
+.nav {
+  width: 100%;
+  z-index: 99;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.nav__button {
+  padding: 1rem;
+  width: 10rem;
+  height: fit-content;
+  background-color: rgba(0, 0, 0, 0.558);
+  border: 1px solid white;
+  border-radius: 2rem;
+  color: white;
+  font-family: var(--header-font);
+  font-weight: 900;
+  font-size: 1rem;
+  box-shadow: inset 0 0 5px #ffffff6f, 0 0 15px #ffffff80;
+  backdrop-filter: blur(10px);
+}
 
 .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   width: 100%;
   position: fixed;
@@ -160,17 +193,18 @@ TON CODE ICI mobile - first
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
     0 0 35px #228dff, 0 0 40px #228dff;
 }
+
 .scrolling-banner {
   width: fit-content;
   position: relative;
   display: flex;
   flex-wrap: nowrap;
-  animation: pan-left 45s infinite linear;
+  animation: pan-left 120s infinite linear;
   box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.39);
 }
+
 .scrolling-banner--right {
-  animation: pan-left 45s infinite linear reverse;
-  margin-top: 2rem;
+  animation: pan-left 120s infinite linear reverse;
 }
 
 @keyframes pan-left {
@@ -190,9 +224,6 @@ TON CODE ICI mobile - first
   transform: scale(1.2);
 }
 /**this push the next elemetn down*/
-.hero + * {
-  margin-top: 100vh;
-}
 
 .fond-rouge {
   background-color: var(--main-color-red);
