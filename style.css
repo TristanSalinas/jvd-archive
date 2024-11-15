@@ -8,7 +8,7 @@ VARIABLES
   --h3-font-size: 2rem;
   --h4-font-size: 1.5rem;
   --fs-default: 1rem;
-  --main-color-red: #772835;
+  --main-color-red: #000000c3;
   --main-color-pink: #cf9d9d;
   --main-color-peach: #f8c8a0;
   --main-color-accent: #f08b2e;
@@ -22,7 +22,7 @@ VARIABLES
     --h2-font-size: 2.75rem;
     --h3-font-size: 2.25rem;
     --h4-font-size: 2rem;
-    --fs-default: 1.25rem;
+    --fs-default: 1rem;
   }
 }
 
@@ -32,7 +32,7 @@ VARIABLES
     --h2-font-size: 3rem;
     --h3-font-size: 2.75rem;
     --h4-font-size: 2rem;
-    --fs-default: 1.25rem;
+    --fs-default: 1rem;
   }
 }
 /*=====================
@@ -120,9 +120,11 @@ TON CODE ICI mobile - first
   height: 10vh;
   display: flex;
   display: none;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 1rem;
   align-items: center;
 }
+
 .nav__button {
   padding: 1rem;
   width: 10rem;
@@ -136,8 +138,13 @@ TON CODE ICI mobile - first
   font-size: 1rem;
   box-shadow: inset 0 0 5px #ffffff6f, 0 0 15px #ffffff80;
   backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-
+.nav__button:hover {
+  box-shadow: inset 0 0 5px #ffffffa7, 0 0 15px #ffffffc2;
+  background-color: rgba(86, 84, 84, 0.558);
+}
 .hero {
   display: flex;
   flex-direction: column;
@@ -151,7 +158,8 @@ TON CODE ICI mobile - first
   background-color: #000;
 }
 /*buzzin blur scrollin */
-.hero::before {
+.hero::before,
+.hero::after {
   pointer-events: none;
   position: absolute;
   display: block;
@@ -164,15 +172,6 @@ TON CODE ICI mobile - first
   animation: scan-down 1s infinite;
 }
 .hero::after {
-  pointer-events: none;
-  position: absolute;
-  display: block;
-  content: "";
-  width: 100%;
-  height: 1rem;
-  z-index: 1;
-  top: 0;
-  backdrop-filter: blur(10px);
   animation: scan-down 5s infinite linear;
   animation-delay: 0.5s;
 }
@@ -185,11 +184,17 @@ TON CODE ICI mobile - first
     top: 100%;
   }
 }
+.hero__arrow-down {
+  position: absolute;
+  bottom: 2rem;
+  height: 3rem;
+  z-index: 1000;
+}
 .hero h1 {
+  transform: perspective(900px) rotateX(33deg);
   text-align: center;
   line-height: 1.25;
   color: white;
-  margin-bottom: 5rem;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
     0 0 35px #228dff, 0 0 40px #228dff;
 }
@@ -209,11 +214,11 @@ TON CODE ICI mobile - first
 
 @keyframes pan-left {
   0% {
-    transform: translateX(0);
+    transform: translateX(25%);
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-25%);
   }
 }
 .scrolling-banner img {
@@ -223,12 +228,19 @@ TON CODE ICI mobile - first
   transition: transform 1s ease;
   transform: scale(1.2);
 }
-/**this push the next elemetn down*/
+.presentation__wrapper {
+  padding-top: 5rem;
+}
 
-.fond-rouge {
+.fond-contenu {
   background-color: var(--main-color-red);
   padding-bottom: 5rem;
+  border-radius: 5px;
+  backdrop-filter: blur(30px);
+  box-shadow: inset 0 0 5px #ffffff6f, inset 0 0 15px #ffffff80;
+  border: 1px solid white;
 }
+
 .presentation__content {
   display: flex;
   flex-direction: column;
@@ -241,13 +253,14 @@ TON CODE ICI mobile - first
 .pourquoi {
   margin-block: 4rem;
   padding: 2rem;
-  color: rgb(103, 255, 108);
+  color: var(--main-color-peach);
   position: relative;
 }
 
 .pourquoi__wrapper {
   border: 1px solid black;
   border-radius: 1.5rem;
+  border: 10px solid white;
   padding: 2rem;
   position: relative;
   background-color: #000;
@@ -275,16 +288,6 @@ TON CODE ICI mobile - first
   padding-inline: 1rem;
 }
 
-.pourquoi::after {
-  box-shadow: 0px 0px 15px 3px #0000005d;
-  border-radius: 2rem;
-  z-index: 0;
-  content: "";
-  background-color: #e4e0db;
-  position: absolute;
-  inset: -0 0 0 0;
-}
-
 /**********************
 ******Aurélia*********/
 
@@ -303,11 +306,11 @@ TON CODE ICI mobile - first
 }
 
 .personne:nth-child(4) {
-  margin-left: 8rem;
+  margin-left: 1rem;
 }
 
 .personne:nth-child(5) {
-  margin-left: 1rem;
+  margin-left: 8rem;
 }
 
 .personne h3 {
@@ -317,6 +320,7 @@ TON CODE ICI mobile - first
 }
 
 .personne__photo {
+  border: 2px solid white;
   width: 100%;
   max-width: 150px;
   height: auto;
@@ -332,14 +336,21 @@ TON CODE ICI mobile - first
 
 /**********************
 ******Joris*********/
-
 .footer {
-  background-color: var(--main-color-peach);
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 5%;
+  width: 90%;
+  border-radius: 1rem;
+  box-shadow: inset 0px 0 5px #ffffff6f, inset 0px 0 5px #ffffff80;
+  border: 1px solid white;
+  margin-inline: auto;
+  margin-bottom: 1rem;
 }
 .footer__navbar {
   display: flex;
@@ -349,17 +360,22 @@ TON CODE ICI mobile - first
 
 .footer__navbar__item i,
 div > i {
-  color: black;
+  color: #fff;
   font-size: 3rem;
   margin: 1rem;
+  z-index: 99;
 }
 
 .footer__hiddenMenu {
+  color: #fff;
+  font-family: "Doto";
+  text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 15px #228dff, 0 0 20px #ff2222,
+    0 0 40px #22d3ff;
+  font-weight: 900;
   display: none;
   visibility: 0;
   flex-direction: column;
   align-items: center;
-  background-color: #000;
   margin: 0;
   list-style-type: none;
   padding-left: 0;
@@ -373,6 +389,7 @@ div > i {
   padding: 1rem 0;
   font-size: 3rem;
 }
+/*FIN CODE JORIS*/
 /*FIN CODE JORIS*/
 
 /*=====================
