@@ -1,5 +1,3 @@
-var mixer = mixitup(".galery");
-
 addEventListener("DOMContentLoaded", function () {
   let burgerButtonDOM = document.querySelector(".burger-button");
   let hiddenMenuDOM = document.querySelector(".footer__hiddenMenu");
