@@ -218,12 +218,12 @@ TON CODE ICI mobile - first
   position: relative;
   display: flex;
   flex-wrap: nowrap;
-  animation: pan-left 120s infinite linear;
+  animation: pan-left 40s infinite linear;
   box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.39);
 }
 
 .scrolling-banner--right {
-  animation: pan-left 60s infinite linear reverse;
+  animation: pan-left 40s infinite linear reverse;
 }
 
 @keyframes pan-left {
