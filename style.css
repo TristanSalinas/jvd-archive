@@ -223,7 +223,7 @@ TON CODE ICI mobile - first
 }
 
 .scrolling-banner--right {
-  animation: pan-left 120s infinite linear reverse;
+  animation: pan-left 60s infinite linear reverse;
 }
 
 @keyframes pan-left {
