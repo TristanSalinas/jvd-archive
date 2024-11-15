@@ -1,0 +1,388 @@
+/*=====================
+VARIABLES 
+=====================*/
+
+:root {
+  --h1-font-size: 3.5rem;
+  --h2-font-size: 2.5rem;
+  --h3-font-size: 2rem;
+  --h4-font-size: 1.5rem;
+  --fs-default: 1rem;
+  --main-color-red: #772835;
+  --main-color-pink: #cf9d9d;
+  --main-color-peach: #f8c8a0;
+  --main-color-accent: #f08b2e;
+  --header-font: "Doto";
+  --text-font: "Space Grotesk";
+}
+
+@media (min-width: 768px) {
+  :root {
+    --h1-font-size: 5rem;
+    --h2-font-size: 2.75rem;
+    --h3-font-size: 2.25rem;
+    --h4-font-size: 2rem;
+    --fs-default: 1.25rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --h1-font-size: 5rem;
+    --h2-font-size: 3rem;
+    --h3-font-size: 2.75rem;
+    --h4-font-size: 2rem;
+    --fs-default: 1.25rem;
+  }
+}
+/*=====================
+UTILITY
+=====================*/
+
+.contained {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/*=====================
+RESET + BASE RULES 
+=====================*/
+
+* {
+  box-sizing: border-box;
+}
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  line-height: 1.5;
+  margin: 0;
+  font-family: var(--text-font);
+  font-size: var(--fs-default);
+  background-color: var(--main-color-red);
+  color: var(--main-color-peach);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--header-font);
+  font-weight: 900;
+  text-shadow: 2px 2px 2px #000;
+}
+
+h2,
+h3,
+h4 {
+  color: var(--main-color-accent);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+  font-weight: 900;
+  margin-left: 2rem;
+  color: rgb(80, 177, 83);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+  text-align: center;
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+/*=====================
+TON CODE ICI mobile - first
+=====================*/
+
+/**********************
+******Tristan*********/
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: -3;
+  top: 0;
+  background-color: #000;
+}
+/*buzzin blur scrollin */
+.hero::before {
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1rem;
+  z-index: 1;
+  top: 0;
+  backdrop-filter: blur(10px);
+  animation: scan-down 1s infinite;
+}
+.hero::after {
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1rem;
+  z-index: 1;
+  top: 0;
+  backdrop-filter: blur(10px);
+  animation: scan-down 5s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes scan-down {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+.hero h1 {
+  text-align: center;
+  line-height: 1.25;
+  color: white;
+  margin-bottom: 5rem;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+    0 0 35px #228dff, 0 0 40px #228dff;
+}
+.scrolling-banner {
+  width: fit-content;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  animation: pan-left 45s infinite linear;
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.39);
+}
+.scrolling-banner--right {
+  animation: pan-left 45s infinite linear reverse;
+  margin-top: 2rem;
+}
+
+@keyframes pan-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.scrolling-banner img {
+  height: 12rem;
+}
+.scrolling-banner img:hover {
+  transition: transform 1s ease;
+  transform: scale(1.2);
+}
+/**this push the next elemetn down*/
+.hero + * {
+  margin-top: 100vh;
+}
+
+.fond-rouge {
+  background-color: var(--main-color-red);
+  padding-bottom: 5rem;
+}
+.presentation__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.presentation__img {
+  max-width: min(70%, 450px);
+}
+
+.pourquoi {
+  margin-block: 4rem;
+  padding: 2rem;
+  color: rgb(103, 255, 108);
+  position: relative;
+}
+
+.pourquoi__wrapper {
+  border: 1px solid black;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  position: relative;
+  background-color: #000;
+  box-shadow: inset 0px 0px 15px 3px #ffffff5d;
+  z-index: 1;
+}
+.pourquoi__wrapper::after {
+  content: "";
+  position: absolute;
+  width: 2rem;
+  height: calc(100%);
+  right: 0;
+  top: 0;
+  z-index: 10;
+  border-radius: 100% 40% 25% 100%;
+  background-color: rgba(254, 255, 239, 0.201);
+}
+
+.pourquoi h2 {
+  text-transform: uppercase;
+  margin: auto;
+  position: relative;
+  width: min-content;
+  text-wrap: nowrap;
+  padding-inline: 1rem;
+}
+
+.pourquoi::after {
+  box-shadow: 0px 0px 15px 3px #0000005d;
+  border-radius: 2rem;
+  z-index: 0;
+  content: "";
+  background-color: #e4e0db;
+  position: absolute;
+  inset: -0 0 0 0;
+}
+
+/**********************
+******Aurélia*********/
+
+.personne {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.personne:nth-child(2) {
+  margin-left: 1rem;
+}
+
+.personne:nth-child(3) {
+  margin-left: 8rem;
+}
+
+.personne:nth-child(4) {
+  margin-left: 8rem;
+}
+
+.personne:nth-child(5) {
+  margin-left: 1rem;
+}
+
+.personne h3 {
+  margin: 0;
+  font-size: var(--h3-font-size);
+  color: var(--main-color-peach);
+}
+
+.personne__photo {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 0.5rem;
+}
+
+.personne__desc {
+  margin-top: 0.5rem;
+  color: var(--main-color-peach);
+}
+
+/**********************
+******Joris*********/
+
+main {
+  /* padding-bottom: 10rem;*/
+}
+
+.footer {
+  background-color: var(--main-color-peach);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.footer__navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.footer__navbar__item i,
+div > i {
+  color: black;
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+.footer__hiddenMenu {
+  display: none;
+  visibility: 0;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+  margin: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+.footer__hiddenMenu.show {
+  display: flex;
+  visibility: 1;
+}
+.footer__hiddenMenu__item {
+  margin: 0;
+  padding: 1rem 0;
+  font-size: 3rem;
+}
+/*FIN CODE JORIS*/
+
+/*=====================
+TON CODE ICI responsive
+=====================*/
+
+/*---------------------
+TABLETTE
+---------------------*/
+@media (min-width: 768px) {
+  /**********************
+******Tristan*********/
+
+  .presentation__content {
+    flex-direction: row;
+  }
+  .presentation__img {
+    max-width: min(50%, 450px);
+  }
+
+  .pourquoi__text-wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+  .pourquoi__text-wrapper p + p {
+    margin-top: 6rem;
+  }
+
+  /*DEBUT - Code par Joris*/
+  .footer {
+    display: none;
+  }
+  /*FIN - Code par Joris*/
+}
+
+/*---------------------
+Mobile
+---------------------*/
+@media (min-width: 1100px) {
+}
