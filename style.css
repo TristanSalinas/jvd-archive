@@ -119,9 +119,9 @@ TON CODE ICI mobile - first
   z-index: 99;
   height: 10vh;
   display: flex;
-  justify-content: center;
+  display: none;
+  justify-content: space-around;
   align-items: center;
-  gap: 2rem;
 }
 .nav__button {
   padding: 1rem;
@@ -333,10 +333,6 @@ TON CODE ICI mobile - first
 /**********************
 ******Joris*********/
 
-main {
-  /* padding-bottom: 10rem;*/
-}
-
 .footer {
   background-color: var(--main-color-peach);
   display: flex;
@@ -408,6 +404,9 @@ TABLETTE
   /*DEBUT - Code par Joris*/
   .footer {
     display: none;
+  }
+  .nav {
+    display: flex;
   }
   /*FIN - Code par Joris*/
 }
