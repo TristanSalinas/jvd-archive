@@ -186,37 +186,15 @@ TON CODE ICI mobile - first
 }
 .hero__arrow-down {
   position: absolute;
-  bottom: 35%;
+  bottom: calc(50% - 1.5rem);
   left: 2rem;
-  height: 3rem;
+  height: 2.5rem;
   z-index: 1000;
   filter: drop-shadow(0 0 10px #f8f8f8);
-  animation: bounce-two 2s ease infinite;
+  animation: bounce 2s ease infinite;
 }
+
 @keyframes bounce {
-  70% {
-    transform: translateY(0%);
-  }
-  80% {
-    transform: translateY(-25%);
-  }
-  90% {
-    transform: translateY(0%);
-  }
-  95% {
-    transform: translateY(-7%);
-  }
-  97% {
-    transform: translateY(0%);
-  }
-  99% {
-    transform: translateY(-3%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@keyframes bounce-two {
   50% {
     transform: translateY(-50%);
   }
@@ -275,6 +253,27 @@ TON CODE ICI mobile - first
   backdrop-filter: blur(30px);
   box-shadow: inset 0 0 5px #ffffff6f, inset 0 0 15px #ffffff80;
   border: 1px solid white;
+}
+.pacman-wrapper {
+  width: 100%;
+  margin-block: 2rem;
+  display: flex;
+  gap: 4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pac-spacer {
+  height: 20vh;
+}
+.pacman {
+  position: sticky;
+  top: 10rem;
+  width: 200px;
+}
+.pacman-ball {
+  position: sticky;
+  top: 10rem;
 }
 
 .presentation__content {
@@ -408,22 +407,38 @@ div > i {
   text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 15px #228dff, 0 0 20px #ff2222,
     0 0 40px #22d3ff;
   font-weight: 900;
-  display: none;
+  box-shadow: inset 0px 0 5px #ffffff6f, inset 0px 0 5px #ffffff80;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.892);
+
+  display: flex;
+  position: absolute; /* Important pour éviter display:none */
+  top: -300px; /* Place hors de la vue initialement */
   visibility: 0;
   flex-direction: column;
   align-items: center;
   margin: 0;
   list-style-type: none;
   padding-left: 0;
+  width: 100%;
+  border-radius: 1rem;
+  /*ANIMATION*/
+  opacity: 0; /* Menu invisible */
+  transform: translateY(20px); /* Décalé vers le bas */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transition animée */
 }
 .footer__hiddenMenu.show {
+  backdrop-filter: blur(10px);
   display: flex;
   visibility: 1;
+  /*ANIMATION*/
+  opacity: 1; /* Rendre visible */
+  transform: translateY(0); /* Positionner à sa place initiale */
 }
 .footer__hiddenMenu__item {
   margin: 0;
   padding: 1rem 0;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 /*=====================
